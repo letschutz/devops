@@ -1,0 +1,23 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Preparar ambiente de Deploy
+        run: echo "Preparando arquivos estáticos para o GitHub Pages..."
+
+      - name: Empacotar Artefato (Continuous Delivery)
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-artefato-pages
+          path: .
