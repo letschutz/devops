@@ -1,0 +1,12 @@
+{
+  "name": "projeto-devops-testes",
+  "version": "1.0.0",
+  "description": "Testes unitários para o site de Entrada Parcelada",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0"
+  }
+}
