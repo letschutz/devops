@@ -1,0 +1,15 @@
+name: Alertas do Discord
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificação para o Discord
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{"content": "🚨 **Atenção equipe!**\nUm novo commit ou merge foi realizado no repositório **${{ github.repository }}** pelo usuário **${{ github.actor }}**.\n\n🔗 Verifique a alteração aqui: https://github.com/${{ github.repository }}/commits/main"}' \
+          ${{ secrets.DISCORD_WEBHOOK }}
