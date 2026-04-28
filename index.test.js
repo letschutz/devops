@@ -1,5 +1,6 @@
-//teste
-
+/**
+ * @jest-environment jsdom
+ */
 const fs = require('fs');
 const path = require('path');
 const html = fs.readFileSync(path.resolve(__dirname, './index.html'), 'utf8');
@@ -18,12 +19,12 @@ describe('Testes Unitários da Interface - Sistema de Entrada Parcelada', () => 
         expect(h1.textContent).toBe('Gestão de Entrada Parcelada');
     });
 
-    test('3. O ficheiro de estilo style.css deve estar vinculado corretamente', () => {
+    test('3. O arquivo de estilo style.css deve estar vinculado corretamente', () => {
         const link = document.querySelector('link[rel="stylesheet"]');
         expect(link.getAttribute('href')).toBe('style.css');
     });
 
-    test('4. Deve existir uma secção com a classe "card"', () => {
+    test('4. Deve existir uma seção com a classe "card"', () => {
         const card = document.querySelector('.card');
         expect(card).not.toBeNull();
     });
